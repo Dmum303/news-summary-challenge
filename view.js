@@ -4,6 +4,7 @@ const Client = require('./client');
 class View {
   constructor(client) {
     this.client = client;
+    this.store = [];
   }
 
   //deletes the json file, noot sure if the data writes over - but just in case
@@ -43,10 +44,29 @@ class View {
         throw err;
       }
       // parse JSON object
-      const newsData = JSON.parse(data.toString());
+      let newsData = JSON.parse(data.toString());
       // print JSON object
+
       callback(newsData);
     });
+  }
+
+  display() {
+    console.log(this.store);
+    return this.store;
+    // document.querySelectorAll('.note').forEach((element) => {
+    //     element.remove();
+    // });
+    // const notes = this.model.getNotes();
+    // notes.forEach((note) => {
+    //     const noteEl = document.createElement('div');
+    //     // console.log(note);
+    //     noteEl.textContent = note;
+    //     noteEl.className = 'note';
+    //     this.mainContainerEl.append(noteEl);
+    // });
+    // // To clear text from input
+    // document.querySelector('#add-note-input').value = '';
   }
 }
 
