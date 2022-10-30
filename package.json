@@ -21,5 +21,15 @@
   "dependencies": {
     "jest": "^29.2.2",
     "jest-environment-jsdom": "^29.2.2"
+  },
+  "devDependencies": {
+    "jest-fetch-mock": "^3.0.3"
+  },
+  "jest": {
+    "automock": false,
+    "resetMocks": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
   }
 }
